@@ -11,4 +11,5 @@ Różne skrypty i programy
 
   ![Screen](books.png)
 
-  - CLTK_test_incorporatio.ipynb - notebook z testem biblioteki CLTK (The Classical Language Toolkit) na przykładzie aktu *Incorporatio Ducatus Curlandiae et Semigalliae* (z 3 SIERPNIA 1569 roku). Tekst aktu za: Litwin Henryk, "Unia Lubelska 1569 roku. Akty Prawne", Instytut Polski w Kijowie, Kijów, 2019, str. 67-68.
+- CLTK_test_incorporatio.ipynb - notebook z testem biblioteki CLTK (The Classical Language
+  Toolkit) na przykładzie aktu *Incorporatio Ducatus Curlandiae et Semigalliae* (z 3 SIERPNIA 1569 roku). Tekst aktu za: Litwin Henryk, "Unia Lubelska 1569 roku. Akty Prawne", Instytut Polski w Kijowie, Kijów, 2019, str. 67-68.
