@@ -24,3 +24,16 @@ Różne skrypty i programy
 
 - CLTK_test_incorporatio.ipynb - notebook z testem biblioteki CLTK (The Classical Language
   Toolkit) na przykładzie aktu *Incorporatio Ducatus Curlandiae et Semigalliae* (z 3 SIERPNIA 1569 roku). Tekst aktu za: Litwin Henryk, "Unia Lubelska 1569 roku. Akty Prawne", Instytut Polski w Kijowie, Kijów, 2019, str. 67-68.
+
+- spacy_clarin_test.ipynb - notebook z porówaniem rozpoznawania nazw własnych i wyrażeń temporalnych (NER)
+  przy użycu spacy 3 i usługi na stronie projektu CLARIN-PL.   
+
+  <details>
+  <summary>Wizualizacja:</summary>
+  
+  <p>
+  <img src="https://github.com/pjaskulski/history_tools/blob/main/spacy_ner.png" alt="" style="max-width:100%;">
+  <img src="https://github.com/pjaskulski/history_tools/blob/main/clarin_pl_ner_grupa_modeli.png" alt="" style="max-width:100%;">
+
+  </p>
+  </details>
