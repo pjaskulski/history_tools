@@ -26,7 +26,7 @@ Różne skrypty i programy
   Toolkit) na przykładzie aktu *Incorporatio Ducatus Curlandiae et Semigalliae* (z 3 SIERPNIA 1569 roku). Tekst aktu za: Litwin Henryk, "Unia Lubelska 1569 roku. Akty Prawne", Instytut Polski w Kijowie, Kijów, 2019, str. 67-68.
 
 - spacy_clarin_test.ipynb - notebook z porówaniem rozpoznawania nazw własnych i wyrażeń temporalnych (NER)
-  przy użycu spacy 3 i usługi na stronie projektu CLARIN-PL, na przykładzie fragmentu artykułu: Chojnacka Kazimiera, "Walka o wolny handel i żeglugę na Warcie i Odrze w pierwszej połowie XVI wieku", Przegląd Zachodni, nr 3-4, 1952.   
+  przy użycu Spacy 3.1.2 (model pl_core_news_lg) i usługi na stronie projektu CLARIN-PL (http://ws.clarin-pl.eu/, model Linera2, grupa modeli). Test przeprowadzono na przykładzie fragmentu artykułu: Chojnacka Kazimiera, "Walka o wolny handel i żeglugę na Warcie i Odrze w pierwszej połowie XVI wieku", Przegląd Zachodni, nr 3-4, 1952.   
 
   <details>
   <summary>Wizualizacja:</summary>

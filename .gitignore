@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+revolutionary_war.csv
+cb_2018_us_state_20m.*
