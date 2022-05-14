@@ -29,7 +29,7 @@ Różne skrypty i programy
   przy użycu Spacy 3.1.2 (model pl_core_news_lg) i usługi na stronie projektu CLARIN-PL (http://ws.clarin-pl.eu/, model Linera2, grupa modeli). Test przeprowadzono na przykładzie fragmentu artykułu: Chojnacka Kazimiera, "Walka o wolny handel i żeglugę na Warcie i Odrze w pierwszej połowie XVI wieku", Przegląd Zachodni, nr 3-4, 1952.   
 
   <details>
-  <summary>Wizualizacja:</summary>
+  <summary>Wizualizacja (u góry Spacy, poniżej CLARIN model Linera2):</summary>
   
   <p>
   <img src="https://github.com/pjaskulski/history_tools/blob/main/spacy_ner.png" alt="" style="max-width:100%;">
