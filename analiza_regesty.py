@@ -1,4 +1,4 @@
-""" tworzenie list regestów """
+""" tworzenie list regestów ze Słownika Historyczno-Geograficznego """
 
 import re
 from pathlib import Path
@@ -31,11 +31,40 @@ def process_point(sheet, m_id, m_nazwa, point_num, point_text):
        point_text - treść punktu
     """
     global regesty_count
+    global place_owner
+
     reg_list = []
     point = point_num
 
+    # czyszczenie z pozostałości HTML-a
+    pattern = r'<.*?>'
+    point_text = re.sub(pattern, '', point_text)
+    point_text = point_text.replace(r'\n', ' ')
+
     reg_list, ownership = get_regesty(point_text)
+    # własność
+    if point_num == 3:
+        place_owner[m_nazwa] = ownership
+
+    # specjalna obsługa dla p. 1
+    if point_num == 1:
+        new_reg_list = []
+        for item in reg_list:
+            if ")," in item:
+                tmp = item.split("),")
+                tmp = [r+')' if not r.endswith(")") else r for r in tmp]
+                new_reg_list = new_reg_list + tmp
+            elif ")." in item:
+                tmp = item.split(").")
+                tmp = [r+')' if not r.endswith(")") else r for r in tmp]
+                new_reg_list = new_reg_list + tmp
+            else:
+                new_reg_list.append(item)
+        reg_list = new_reg_list
+
     for item in reg_list:
+        # if 'n. par. Nowa Słupia (DLb. II 490) [' in item:
+        #     print()
         item = item.strip()
         year = get_year_from_regest(item)
         source = get_source_from_regest(item)
@@ -54,6 +83,8 @@ if __name__ == '__main__':
     for nr in range(1, 13):
         print(f"Słownik: {slowniki[nr]} ({nr})")
 
+        place_owner = {}
+
         output_path = Path('.').parent / f'output/wyniki/regesty_{slowniki[nr]}.xlsx'
         input_path = Path('.').parent / f'output/wyniki/hasla_{nr}_pkt.xlsx'
 
@@ -63,7 +94,8 @@ if __name__ == '__main__':
         wb = openpyxl.Workbook()
         ws = wb.active
 
-        point_sheet_columns = ['Miejscowość_Id', 'Nazwa', 'Punkt', 'Rok', 'Treść', 'Źródła', 'Cały Regest']
+        point_sheet_columns = ['Miejscowość_Id', 'Nazwa', 'Punkt', 'Rok',
+                               'Treść', 'Źródła', 'Cały Regest']
         regest_sheet_1 = create_sheet(wb=wb, title="Regesty p. 1", columns=point_sheet_columns)
         regest_sheet_2 = create_sheet(wb=wb, title="Regesty p. 2", columns=point_sheet_columns)
         regest_sheet_3 = create_sheet(wb=wb, title="Regesty p. 3", columns=point_sheet_columns)
@@ -111,8 +143,19 @@ if __name__ == '__main__':
         # usunięcie pustego pierwszego arkusza
         sheet1 = wb['Sheet']
         wb.remove(sheet1)
+
+        # arkusz z własnością
+        wlasnosc_sheet = create_sheet(wb=wb, title="Własność", columns=['Miejscowość', 'Własność'])
+        for key, value in place_owner.items():
+            wiersz = (key, value)
+            wlasnosc_sheet.append(wiersz)
+
         # zapis pliku xlsx
         wb.save(filename=output_path)
 
+    suma = 0
     for i in range(1, 7):
         print(f"p.{i}", regesty_count[i])
+        suma += regesty_count[i]
+    print(f"razem: {suma}")
+        
